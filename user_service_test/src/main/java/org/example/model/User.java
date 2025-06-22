@@ -1,6 +1,11 @@
 package org.example.model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Column;
 import java.time.LocalDateTime;
 
 @Entity
@@ -9,16 +14,16 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    //Имя пользователя
     @Column(name = "name", nullable = false)
     private String name;
-
+    //Email пользователя (уникальный)
     @Column(name = "email", unique = true, nullable = false)
     private String email;
-
+    //Возраст пользователя
     @Column(name = "age")
     private Integer age;
-
+    //Дата и время создания записи
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
